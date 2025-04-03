@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Role - Croo</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #111;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Role</h2>
+        <p>Choose your role in the film industry.</p>
+        <button class="btn" onclick="selectRole('Worker')">Worker</button>
+        <button class="btn" onclick="selectRole('Job Hiring')">Job Hiring</button>
+        <button class="btn" onclick="selectRole('Both')">Both</button>
+    </div>
+    
+    <script>
+        function selectRole(role) {
+            localStorage.setItem('userRole', role);
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

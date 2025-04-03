@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Croo</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: black;
+            color: white;
+            margin: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #111;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            text-align: center;
+        }
+        .sidebar img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 10px 0;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background: #222;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .header img {
+            width: 120px;
+        }
+        .btn {
+            padding: 8px 16px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="assets/images/croo-logo.png" alt="Croo Logo">
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Find Jobs</a>
+        <a href="#">Post Jobs</a>
+        <a href="#">Projects</a>
+        <a href="#">Messages</a>
+        <a href="#">Subscription</a>
+        <button class="btn" onclick="logout()">Logout</button>
+    </div>
+    <div class="content">
+        <div class="header">
+            <img src="assets/images/logo.png" alt="Croo Logo">
+            <p id="roleDisplay">Loading...</p>
+        </div>
+        <p>Connect with film industry professionals, find work, and grow your career.</p>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const role = localStorage.getItem("userRole");
+            if (role) {
+                document.getElementById("roleDisplay").innerText = `Role: ${role}`;
+            } else {
+                document.getElementById("roleDisplay").innerText = "Role not found. Please register again.";
+            }
+        });
+        function logout() {
+            localStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
